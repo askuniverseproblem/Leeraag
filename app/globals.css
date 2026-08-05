@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #faf9f6;
+  color: #141414;
+}
+
+.btn-primary {
+  @apply bg-forest text-sand px-5 py-3 rounded-full font-body font-medium hover:bg-forestlight transition-colors;
+}
+
+.btn-outline {
+  @apply border border-ink/20 text-ink px-5 py-3 rounded-full font-body font-medium hover:border-ink transition-colors;
+}
+
+.input-field {
+  @apply w-full border border-line rounded-lg px-4 py-3 font-body text-ink bg-white focus:outline-none focus:ring-2 focus:ring-amber;
+}
