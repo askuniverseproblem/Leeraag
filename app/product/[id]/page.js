@@ -39,3 +39,31 @@ export default function ProductDetail() {
         <h1 className="font-display text-3xl mb-2">{product.name}</h1>
         <p className="font-display text-2xl text-forest mb-4">₹{product.price}</p>
         <p className="font-body text-ink/70 mb-6">{product.description}</p>
+        <p className="font-body text-sm text-ink/50 mb-6">
+          {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
+        </p>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center border border-line rounded-full">
+            <button className="px-4 py-2" onClick={() => setQty((q) => Math.max(1, q - 1))}>
+              −
+            </button>
+            <span className="px-3 font-body">{qty}</span>
+            <button className="px-4 py-2" onClick={() => setQty((q) => q + 1)}>
+              +
+            </button>
+          </div>
+        </div>
+        <button
+          disabled={product.stock <= 0}
+          className="btn-primary disabled:opacity-40"
+          onClick={() => {
+            addToCart(product, qty);
+            router.push("/cart");
+          }}
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  );
+}
